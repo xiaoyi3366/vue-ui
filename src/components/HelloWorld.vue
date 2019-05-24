@@ -23,7 +23,9 @@
       </a-layout-footer>
     </a-layout>
   </a-layout>
-  <SittingDrawer/>
+  <Authorized :authority="['admin']">
+    <SittingDrawer/>
+  </Authorized>
 </div>
 </template>
 

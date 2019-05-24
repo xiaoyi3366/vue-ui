@@ -7,7 +7,8 @@ import 'ant-design-vue/dist/antd.css';  // or 'ant-design-vue/dist/antd.less'
 import Antd from 'ant-design-vue'
 Vue.use(Antd)
 Vue.config.productionTip = false
-
+import Authorized from "./components/Authorized";
+Vue.component("Authorized", Authorized);//全局注册Authorized组件
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
