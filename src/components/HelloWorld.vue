@@ -7,21 +7,16 @@
       v-model="collapsed"
       :theme="navTherem"
       v-if="navLayout==='left'"
+      width="256px"
     >
-      <div class="logo">Ant Design Vue Pro</div>
-      
+      <div class="title">Ant Design Vue Pro</div>
+      <SiderMenu :theme="navTherem"/>
     </a-layout-sider>
     <a-layout>
       <a-icon :type="collapsed?'menu-unfold':'menu-fold'" class="trigger" @click="collapsed = !collapsed"></a-icon>
       <a-layout-header style="background: #fff; padding: 0" />
       <a-layout-content style="margin: 0 16px">
-        <a-breadcrumb style="margin: 16px 0">
-          <a-breadcrumb-item>User</a-breadcrumb-item>
-          <a-breadcrumb-item>Bill</a-breadcrumb-item>
-        </a-breadcrumb>
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-          
-        </div>
+        <router-view></router-view>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
         Ant Design ©2018 Created by Ant UED
@@ -34,6 +29,7 @@
 
 <script>
 import SittingDrawer from './SittingDrawer'
+import SiderMenu from './SiderMenu'
 export default {
   name: 'HelloWorld',
   data () {
@@ -50,7 +46,8 @@ export default {
     },
   },
   components:{
-    SittingDrawer
+    SittingDrawer,
+    SiderMenu
   }
 }
 </script>
@@ -69,13 +66,13 @@ export default {
 .trigger:hover{
   background:#eee;
 }
-.logo {
+.title {
   height: 64px;
   line-height: 64px;
   text-align: center;
   /* overflow: hidden; */
 }
-.nav-theme-dark >>> .logo {
+.nav-theme-dark >>> .title {
   color: #ffffff;
 }
 </style>
