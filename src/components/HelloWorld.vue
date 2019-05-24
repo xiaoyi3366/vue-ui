@@ -13,7 +13,12 @@
       <SiderMenu :theme="navTherem"/>
     </a-layout-sider>
     <a-layout>
-      <a-icon :type="collapsed?'menu-unfold':'menu-fold'" class="trigger" @click="collapsed = !collapsed"></a-icon>
+      <a-icon 
+        v-auth="['admin']"
+        :type="collapsed?'menu-unfold':'menu-fold'" 
+        class="trigger" 
+        @click="collapsed = !collapsed"
+      ></a-icon>
       <a-layout-header style="background: #fff; padding: 0" />
       <a-layout-content style="margin: 0 16px">
         <router-view></router-view>

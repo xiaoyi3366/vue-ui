@@ -8,6 +8,8 @@ import Antd from 'ant-design-vue'
 Vue.use(Antd)
 Vue.config.productionTip = false
 import Authorized from "./components/Authorized";
+import Auth from "./directives/auth";
+Vue.use(Auth)
 Vue.component("Authorized", Authorized);//全局注册Authorized组件
 /* eslint-disable no-new */
 new Vue({
