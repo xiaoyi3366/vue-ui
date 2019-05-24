@@ -30,6 +30,7 @@
  * SubMenu1.vue https://github.com/vueComponent/ant-design-vue/blob/master/components/menu/demo/SubMenu1.vue
  * */
 import SubMenu from './SubMenu'
+import { check } from "../utils/auth";
 // import router from '../router/index.js'
 export default {
   props:{
@@ -68,6 +69,9 @@ export default {
     getMenuData (routes = [], parentKeys = [], selectedKey) {
         const menuData = [];
         for (let item of routes) {
+            if (item.meta && item.meta.authority && !check(item.meta.authority)) {
+                continue;
+            }
             if (item.name && !item.hideInMenu) {
                 this.openKeysMap[item.path] = parentKeys;
                 this.selectedKeysMap[item.path] = [selectedKey || item.path];
@@ -97,13 +101,13 @@ export default {
                 );
             }
         }
-        console.log(menuData)
+        // console.log(menuData)
         return menuData;
     },
   },
   mounted(){
     //   console.log(router)
-      console.log(this.$router.options.routes)
+    //   console.log(this.$router.options.routes)
   }
 }
 </script>
